@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,9 +11,7 @@ namespace SubtitleTimeshift
         async static public Task Shift(Stream input, Stream output, TimeSpan timeSpan, Encoding encoding,
             int bufferSize = 1024, bool leaveOpen = false)
         {
-            var lines = new string[6000];
-            var count = 0;
-            var i = 0;
+            List<string> lines = new List<string>();
 
             using (StreamReader streamReader = new StreamReader(input, encoding))
             using (StreamWriter streamWriter = new StreamWriter(output, encoding))
@@ -41,8 +40,7 @@ namespace SubtitleTimeshift
 
                     }
 
-                    lines[i] = line;
-                    i++;
+                    lines.Add(line);
                 }
 
                 foreach (string l in lines)
