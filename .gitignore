@@ -11,3 +11,6 @@
 /Graph.Tests/obj
 /SubtitleTimeshift/obj
 /SubtitleTimeshift.Tests/obj
+/.vs
+/SubtitleTimeshift/bin/Debug/netstandard2.0
+/SubtitleTimeshift.Tests/bin/Debug/netcoreapp3.1
