@@ -23,20 +23,19 @@ namespace SubtitleTimeshift
                 {
                     if (line.Contains("-->"))
                     {
+                        var subs = line.Split('>');
+                        var firstTime = subs[0].Replace("-", "").Trim();
+                        var secondTime = subs[1].TrimStart();
 
-                        var subs = line.Substring(0, 12);
-                        var time = TimeSpan.Parse(subs);
+                        var newFirstTime = TimeSpan.Parse(firstTime);
+                        newFirstTime += timeSpan;
+                        var formatedFirstTime = newFirstTime.ToString(@"hh\:mm\:ss\.fff");
+                        line = line.Replace(firstTime, formatedFirstTime);
 
-                        time += timeSpan;
-                        var formatedTime = time.ToString(@"hh\:mm\:ss\.fff");
-                        line = line.Replace(subs, formatedTime);
-
-                        subs = line.Substring(line.LastIndexOf('>') + 2);
-                        time = TimeSpan.Parse(subs);
-
-                        time += timeSpan;
-                        formatedTime = time.ToString(@"hh\:mm\:ss\.fff");
-                        line = line.Replace(subs, formatedTime);
+                        var newSecondTime = TimeSpan.Parse(secondTime);
+                        newSecondTime += timeSpan;
+                        var formatedSecondTime = newSecondTime.ToString(@"hh\:mm\:ss\.fff");
+                        line = line.Replace(secondTime, formatedSecondTime);
 
                     }
 
