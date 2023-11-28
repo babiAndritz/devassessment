@@ -30,12 +30,12 @@ namespace SubtitleTimeshift
                         var newFirstTime = TimeSpan.Parse(firstTime);
                         newFirstTime += timeSpan;
                         var formatedFirstTime = newFirstTime.ToString(@"hh\:mm\:ss\.fff");
-                        line = line.Replace(firstTime, formatedFirstTime);
 
                         var newSecondTime = TimeSpan.Parse(secondTime);
                         newSecondTime += timeSpan;
                         var formatedSecondTime = newSecondTime.ToString(@"hh\:mm\:ss\.fff");
-                        line = line.Replace(secondTime, formatedSecondTime);
+
+                        line = line.Replace(line, formatedFirstTime + " --> " + formatedSecondTime);
 
                     }
 
