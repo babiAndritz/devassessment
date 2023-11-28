@@ -25,7 +25,7 @@ namespace SubtitleTimeshift
                     {
                         var subs = line.Split('>');
                         var firstTime = subs[0].Replace("-", "").Trim();
-                        var secondTime = subs[1].TrimStart();
+                        var secondTime = subs[1].Trim();
 
                         var newFirstTime = TimeSpan.Parse(firstTime);
                         newFirstTime += timeSpan;
