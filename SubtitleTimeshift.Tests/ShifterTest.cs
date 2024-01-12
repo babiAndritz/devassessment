@@ -1,18 +1,21 @@
 using System;
 using System.Reflection;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
 namespace SubtitleTimeshift.Tests
 {
-    public class ShifterTest
+    public class ShifterTest 
     {
         [Fact]
         async public Task TestShiftSubtitle()
         {
 
-            var inputPath = "The.Matrix.1999.BluRay.720p.Malay.srt";
+            var subtitleWindow = new Challenge1.View.SubtitleWindow();
+
+            var inputPath = subtitleWindow.SelectedFilePath;
             var outputPath = "The.Matrix.1999.BluRay.720p.Malay - Copy.srt";
             var assertPath = "The.Matrix.1999.BluRay.720p.Malay - Assert.srt";
 
