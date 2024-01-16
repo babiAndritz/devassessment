@@ -21,6 +21,8 @@ namespace Graph
             this.Links = links;
         }
 
+        public IEnumerable<object> Vertices { get; set; }
+
         // IObservable é uma interface de uma fonte de dados assíncrona e infinita que gera uma sequência de valores
         // IEnumerable emite sequências
         public IObservable<IEnumerable<T>> RoutesBetween(T source, T target)

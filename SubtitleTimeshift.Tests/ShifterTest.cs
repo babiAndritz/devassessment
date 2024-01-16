@@ -13,9 +13,7 @@ namespace SubtitleTimeshift.Tests
         async public Task TestShiftSubtitle()
         {
 
-            var subtitleWindow = new Challenge1.View.SubtitleWindow();
-
-            var inputPath = subtitleWindow.SelectedFilePath;
+            var inputPath = "The.Matrix.1999.BluRay.720p.Malay.srt";
             var outputPath = "The.Matrix.1999.BluRay.720p.Malay - Copy.srt";
             var assertPath = "The.Matrix.1999.BluRay.720p.Malay - Assert.srt";
 
