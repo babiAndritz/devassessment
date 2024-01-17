@@ -45,7 +45,10 @@ namespace Graph
             if (current.Equals(target))
             {
                 // se o nó atual for o nó alvo, o caminho acabou e adiciona esse caminho na lista de todos os caminhos completos
-                allPaths.Add(path.ToList());
+                if (!IsPathAlreadyInList(path, allPaths))
+                {
+                    allPaths.Add(path.ToList());
+                }
             }
             else // se o nó não for o alvo final
             { 
@@ -62,6 +65,18 @@ namespace Graph
 
             path.RemoveAt(path.Count - 1); // remove o caminho atual para uma possibilidade de ter outros caminhos
             visited.Remove(current); // remove os nós visitados para uma possibilidade de ter outros caminhos
+        }
+
+        private bool IsPathAlreadyInList(List<T> path, List<IEnumerable<T>> allPaths)
+        {
+            foreach (var existingPath in allPaths)
+            {
+                if (path.SequenceEqual(existingPath))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
     }
