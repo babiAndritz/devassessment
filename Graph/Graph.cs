@@ -67,7 +67,7 @@ namespace Graph
             visited.Remove(current); // remove os nós visitados para uma possibilidade de ter outros caminhos
         }
 
-        private bool IsPathAlreadyInList(List<T> path, List<IEnumerable<T>> allPaths)
+        private bool IsPathAlreadyInList(List<T> path, List<IEnumerable<T>> allPaths) // confere se existe o caminho na lista
         {
             foreach (var existingPath in allPaths)
             {
