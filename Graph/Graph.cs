@@ -45,7 +45,7 @@ namespace Graph
             if (current.Equals(target))
             {
                 // se o nó atual for o nó alvo, o caminho acabou e adiciona esse caminho na lista de todos os caminhos completos
-                if (!IsPathAlreadyInList(path, allPaths))
+                if (!IsPathAlreadyInList(path, allPaths)) // adicionar apenas se não existir esse caminho na lista
                 {
                     allPaths.Add(path.ToList());
                 }
