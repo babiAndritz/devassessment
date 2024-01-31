@@ -1,0 +1,589 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.ServiceHub.Resources</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.ServiceHub.Resources.Resource">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.AllExternalClientsDisconnected">
+            <summary>
+              Looks up a localized string similar to All external clients disconnected.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.AttemptToLocateServiceRetry">
+            <summary>
+              Looks up a localized string similar to Retrying attempted connection to service {0} - attempt {1}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.CachedHostIsShutdown">
+            <summary>
+              Looks up a localized string similar to Cached host '{0}' has shutdown. Restarting the host..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.CannotFindServiceModuleFile">
+            <summary>
+              Looks up a localized string similar to Cannot find service module info file '{0}' in '{1}'.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.CannotFindServiceModuleFileWithReason">
+            <summary>
+              Looks up a localized string similar to Cannot find service module info file '{0}' in '{1}', using discovery services failed: {2}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.CannotResolveHost">
+            <summary>
+              Looks up a localized string similar to Cannot resolve and load host info for '{0}' from '{1}': {2}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.CannotResolveServiceModuleInfo">
+            <summary>
+              Looks up a localized string similar to Cannot resolve and load service module info for '{0}' from '{1}': {2}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.CannotStopLocationService">
+            <summary>
+              Looks up a localized string similar to Cannot stop location service from a proxy.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ClientWatchStreamException">
+            <summary>
+              Looks up a localized string similar to Reading from the Client Watch stream threw an exception. {0} : {1}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.CloseHubStreamFailed">
+            <summary>
+              Looks up a localized string similar to Error closing hub stream: {0}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ConnectedToService">
+            <summary>
+              Looks up a localized string similar to A client connected to {0}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ContextEnvironmentVariableNotFoundInProvidedEnvironment">
+            <summary>
+              Looks up a localized string similar to The ContextEnvironmentVariable '{0}' was not found in the provided environment map..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ControllerConnectionInvalidArgumentExceptionMessage">
+            <summary>
+              Looks up a localized string similar to Microsoft.ServiceHub.Controller.exe was started with an invalid command line..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ControllerConnectionTimeoutExceptionMessage">
+            <summary>
+              Looks up a localized string similar to Microsoft.ServiceHub.Controller.exe exited normally before accepting connection..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ControllerConnectionWindowsShutdownExceptionMessage">
+            <summary>
+              Looks up a localized string similar to Microsoft.ServiceHub.Controller.exe exited abnormally because Windows in the process of shutting down..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ControllerNotResponding">
+            <summary>
+              Looks up a localized string similar to Controller is not responding to incoming requests..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ControllerShuttingDown">
+            <summary>
+              Looks up a localized string similar to The '{0}' process is terminating..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.CouldNotKillHost">
+            <summary>
+              Looks up a localized string similar to Could not kill host {0}: {1}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.CreateServiceInstanceError">
+            <summary>
+              Looks up a localized string similar to Error creating service module instance for '{0}', closing the stream to the client: '{1}'..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.DisconnectingDiscoveryServiceFailed">
+            <summary>
+              Looks up a localized string similar to Error disconnecting from '{0}' discovery service: {1} {2}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.DisposeServiceError">
+            <summary>
+              Looks up a localized string similar to Error disposing {0}instance of '{1}' service: {2}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ErrorDecoding">
+            <summary>
+              Looks up a localized string similar to Error decoding string: {0}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ErrorLocationServiceEnvVarNotSet">
+            <summary>
+              Looks up a localized string similar to The environment variable '{0}' should be set..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ErrorParsingJson">
+            <summary>
+              Looks up a localized string similar to Error parsing JSON from file {0}: {1}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ErrorShuttingDownHosts">
+            <summary>
+              Looks up a localized string similar to Error shutting down host processes {0}..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ExitCommandReceived">
+            <summary>
+              Looks up a localized string similar to Hub host recieved exit command..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ExitingHubController">
+            <summary>
+              Looks up a localized string similar to Exiting hub controller..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ExitingHubControllerWithReason">
+            <summary>
+              Looks up a localized string similar to Exiting hub controller due to {0}..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.FailedGetSaltString">
+            <summary>
+              Looks up a localized string similar to Failed to get user specific salt string. {0}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.FailedToConnectToController">
+            <summary>
+              Looks up a localized string similar to Failed to connect to controller's location service at '{0}' after trying for {1} msec.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.FailedToDeleteDirectory">
+            <summary>
+              Looks up a localized string similar to Failed to delete file '{0}'. Error type={1}, Error message={2}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.FailedToDeleteFile">
+            <summary>
+              Looks up a localized string similar to Failed to delete file '{0}'. Error type={1}, Error message={2}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.FailedToEnumerateDirs">
+            <summary>
+              Looks up a localized string similar to Failed to enumerate directories in '{0}'. Error type={1}, Error message={2}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.FailedToEnumerateFilesInDir">
+            <summary>
+              Looks up a localized string similar to Failed to enumerate files in directory '{0}'. Error type={1}, Error message={2}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.FailedToGetFileStats">
+            <summary>
+              Looks up a localized string similar to Failed to get statistics for file '{0}'. Error type={1}, Error message={2}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.FileNotFound">
+            <summary>
+              Looks up a localized string similar to Could not find file: {0}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.FirstTimeLoadingService">
+            <summary>
+              Looks up a localized string similar to Service '{0}' has not been loaded before. Loading now..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ForceControllerShutDown">
+            <summary>
+              Looks up a localized string similar to Forced hub controller shutdown..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.GetHostIdFailed">
+            <summary>
+              Looks up a localized string similar to Could not get host id of a newly created host: {0}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.HostExited">
+            <summary>
+              Looks up a localized string similar to Hub host '{0}', PID: {1} exited..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.HostExitedWithCode">
+            <summary>
+              Looks up a localized string similar to code: '{0}' {1}..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.HostExitedWithSignal">
+            <summary>
+              Looks up a localized string similar to signal: '{0}'..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.HostGroupNotSupported">
+            <summary>
+              Looks up a localized string similar to Service '{0}' does not support host groups and cannot run in host group '{1}'. Set '{2}' property to 'true' in the service config file to enable host groups for the service..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.HostInfoContainsReservedProperty">
+            <summary>
+              Looks up a localized string similar to Host info at '{0}' contains reserved 'filePath' property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.HostInfoInvalid">
+            <summary>
+              Looks up a localized string similar to Host info at '{0}' does not have hostExecutable:string and hostArgs:string[] members.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.HostInfoNotDefined">
+            <summary>
+              Looks up a localized string similar to Host info in '{0}' is not defined.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.HostInfoNotFound">
+            <summary>
+              Looks up a localized string similar to Failed to find a HostInfo object for '{0}' when some host connected.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.HostLaunched">
+            <summary>
+              Looks up a localized string similar to Launched '{0}' hub host. PID: {1}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.HostRemovedFromCache">
+            <summary>
+              Looks up a localized string similar to Host '{0}' has been removed from the hosts cache..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.HostShuttingDown">
+            <summary>
+              Looks up a localized string similar to The host {0} for service {1} is shutting down. We will start a new host.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.HostTypeNotFound">
+            <summary>
+              Looks up a localized string similar to Cannot find host type '{0}' in '{1}'.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.hostTypeNotFoundInLocation">
+            <summary>
+              Looks up a localized string similar to Cannot find host type '{0}' in '{1}', or in '{2}'.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.IgnoringDuplicateExit">
+            <summary>
+              Looks up a localized string similar to Ignoring duplicate exit command..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.Inactivity">
+            <summary>
+              Looks up a localized string similar to inactivity.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.InvalidCommandLine">
+            <summary>
+              Looks up a localized string similar to TODO: fix this string - Invalid command line. Usage: 'node {0} [&lt;Controller channel name&gt;]'.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.InvalidConfigContents">
+            <summary>
+              Looks up a localized string similar to The contents of the config at '{0}' is invalid. Contents: {1}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.LaunchingHostWithCmd">
+            <summary>
+              Looks up a localized string similar to Launching '{0}' hub host with command line: '{1}'.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.LengthCannotBeNegative">
+            <summary>
+              Looks up a localized string similar to Length must not be negative.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.Loading">
+            <summary>
+              Looks up a localized string similar to Loading '{0}'.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.LoadingHostInfo">
+            <summary>
+              Looks up a localized string similar to Loading host info for '{0}' from '{1}'.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.LoadingServiceFromLocation">
+            <summary>
+              Looks up a localized string similar to Loading the service '{0}' from '{1}'..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.LoadingServiceModule">
+            <summary>
+              Looks up a localized string similar to Loading service module info '{0}' for service '{1}'.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.LoadServiceModuleError">
+            <summary>
+              Looks up a localized string similar to Error loading service module '{0}': {1}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.LocatingServcieError">
+            <summary>
+              Looks up a localized string similar to Discovery service '{0}' error locating service '{1}': {2} at {3}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.LocatingService">
+            <summary>
+              Looks up a localized string similar to Locating service '{0}' requested by {1}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.LogConfig">
+            <summary>
+              Looks up a localized string similar to Log configuration: {0}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.MessageAt">
+            <summary>
+              Looks up a localized string similar to at.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.MoreThanOneHostPending">
+            <summary>
+              Looks up a localized string similar to More than one host is pending when one of the hosts failed to provide host id.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.MultipleFileFound">
+            <summary>
+              Looks up a localized string similar to Only one file is expected. Actually more were found in '{0}': {1}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.NodeHubControllerProcessCouldNotBeStarted">
+            <summary>
+              Looks up a localized string similar to Could not start process: {0}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.NoFolderSpecified">
+            <summary>
+              Looks up a localized string similar to Service Hub config has no services folder specified.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.NoPipeName">
+            <summary>
+              Looks up a localized string similar to There is no pipe name after '{0}'.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.NotifyHubControllerForServicesEndedFailed">
+            <summary>
+              Looks up a localized string similar to Error notifying hub controller that host services ended: {0}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.NotifyHubControllerForServicesStartedFailed">
+            <summary>
+              Looks up a localized string similar to Error notifying hub controller that host services started: {0}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.NoValueForProperty">
+            <summary>
+              Looks up a localized string similar to {0} in {1} does not have a value for {2} property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ObjectDisposed">
+            <summary>
+              Looks up a localized string similar to Object is disposed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ServiceEntryPointConstructorNotFound">
+            <summary>
+              Looks up a localized string similar to Failed to find a service entry point constructor function for '{0}'. Check your service module authoring to ensure it includes a service entryPoint.constructorFunction property..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ServiceEntryPointFileNameNotFound">
+            <summary>
+              Looks up a localized string similar to Failed to find a service entry point file name for '{0}'. Check your service module authoring to ensure it includes a service entryPoint.scriptPath property..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ServiceHubConfigFileDoesNotExist">
+            <summary>
+              Looks up a localized string similar to ServiceHub config file '{0}' does not exist.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ServiceHubConfigFileNameIsIncorrect">
+            <summary>
+              Looks up a localized string similar to ServiceHub config file name in '{0}' is not equal to 'servicehub.config.json'.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ServiceHubConfigFileNameIsInvalid">
+            <summary>
+              Looks up a localized string similar to Service Hub config file name '{0}' does not match expected name '{1}'.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ServiceHubConfigFilePathIsNotAbsolute">
+            <summary>
+              Looks up a localized string similar to ServiceHub config file path '{0}' is not an absolute path.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ServiceHubConfigJsonNotFound">
+            <summary>
+              Looks up a localized string similar to Could not find {0} in {1} and in any of its parent directories.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ServiceInfoInvalid">
+            <summary>
+              Looks up a localized string similar to Service module info for service '{0}' contains reserved '{1}' property.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ServiceInfoInvalidSpaceInHostId">
+            <summary>
+              Looks up a localized string similar to Service module info for service '{0}' contains space in the host id '{1}'.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ServiceLocated">
+            <summary>
+              Looks up a localized string similar to Located service \'{0}\' at '{1}' requested by {2}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ServiceModuleInvalidProperty">
+            <summary>
+              Looks up a localized string similar to Service module info for service '{0}' contains invalid value '{1}' for '{2}' property..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ServiceNameNotSpecified">
+            <summary>
+              Looks up a localized string similar to Service name is not specified.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ServiceOverrideNotFound">
+            <summary>
+              Looks up a localized string similar to Did not find a service to override the '{0}' service with..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ServiceOverrideNotFoundWithError">
+            <summary>
+              Looks up a localized string similar to Did not find a service to override the '{0}' service with : {1}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ServiceOverrideSearching">
+            <summary>
+              Looks up a localized string similar to '{0}' is marked as having ServiceOverride enabled. Searching for an override service..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ServiceRemovedFromCache">
+            <summary>
+              Looks up a localized string similar to Service '{0}' has been removed from the located services cache..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ServiceStarted">
+            <summary>
+              Looks up a localized string similar to Successfully started service '{0}'. PID: '{1}'. Service Endpoint: '{2}'.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ServiceStartedAfterHostShutDown">
+            <summary>
+              Looks up a localized string similar to Service '{0}' has started after host shutdown initiated. The service will shut down..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.ServiceVersionNotSupported">
+            <summary>
+              Looks up a localized string similar to The requested service with version {0} is not supported..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.SkipHostCooldown">
+            <summary>
+              Looks up a localized string similar to Skipping startHostCooldown since debugging on startup has been requested for host {0}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.StartingHostError">
+            <summary>
+              Looks up a localized string similar to Error starting hub host {0}'{1}': '{2}'..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.StartingHubHost">
+            <summary>
+              Looks up a localized string similar to Starting hub host '{0}'. Host callback pipe: '{1}'.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.StartingServer">
+            <summary>
+              Looks up a localized string similar to Starting server '{0}' at '{1}' (at '{2}')..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.StartingService">
+            <summary>
+              Looks up a localized string similar to Node host starting service '{0}'.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.StartingServiceFailed">
+            <summary>
+              Looks up a localized string similar to Error starting service '{0}' requested by {1}: {2}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.StartServiceRequestReceived">
+            <summary>
+              Looks up a localized string similar to Node host received start request for service '{0}'.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.StartServiceRequestRejected">
+            <summary>
+              Looks up a localized string similar to startService() request for service '{0}' rejected because it was received after shutdown.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.StoppedServer">
+            <summary>
+              Looks up a localized string similar to Stopped server  '{0}' at '{1}'..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.StoppingHost">
+            <summary>
+              Looks up a localized string similar to Stopping host '{0}' PID: {1} due to {2}.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.UncaughtException">
+            <summary>
+              Looks up a localized string similar to Uncaught exception. Exiting process with error code {0}: {1}..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.UncaughtExceptionWithStack">
+            <summary>
+              Looks up a localized string similar to Uncaught exception. Exiting process with error code {0}: {1} at {2}..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.UnknownHost">
+            <summary>
+              Looks up a localized string similar to Unknown host '{0}'.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.UrlHasNoPipeName">
+            <summary>
+              Looks up a localized string similar to url has no pipe name after '{0}'.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.UrlShouldStartWith">
+            <summary>
+              Looks up a localized string similar to url should start with '{0}'.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.VariableIsNotDefined">
+            <summary>
+              Looks up a localized string similar to {0} is not defined.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.VariableMustBeFunction">
+            <summary>
+              Looks up a localized string similar to {0} must be a function in '{1}'. Actually it is {2}..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceHub.Resources.Resource.VariablesAreNotDefined">
+            <summary>
+              Looks up a localized string similar to {0} are not defined.
+            </summary>
+        </member>
+    </members>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" /><DigestValue>OfRuMqdfmheze/oMdZWWNupMn4TfQoYK9L5Jjxyb0wg=</DigestValue></Reference></SignedInfo><SignatureValue>sIDYVwlpUqwphOaCuC8fMhpDptJ4nzCL485ONi0TroQSj2T5/BdjnALTEqpqcpACjt56Yt+wjO2yTI/3SqMggaTG4Dn6VVv+g5R2BMY+Cf7aF0t/u248lAch1l2ZRZVvTnmtxjWcF4eSonh23MmcXktL6ba561eU/9nj2TOIu6lvhyzbJ7roLPyy5etUCKF/qoqb+7JWfc25DLqGkRKXXoQKjYr2ZZr1SJS29govFvsWjKePbQi7DsUBGMOVF2hq71eUJs0Nd7Pi3/DiAHNzxDTR8lou15gye3F2wWp9nzIRx091IJDqbhgvW8RQYOuzUtSkJHix7RPgwFYSX3KxxQ==</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>3QiojSOiARVrryVJn+lnTiamZiMGLORuwCQ+VG3C+rbAvhATw269+qRRqNW7FKed50chWJ53KDIPBStHfIy5cNJYHsQw6+4InH9szgRVqn7/50i8MyRTT+VtNwxf9daGddq0hahpZvjuOnEY0wxQaTEQmWRnXWZUQY4r28tHiNVYEw9U7wHXwWEHvNn4ZlkJGEf5VpgCvr1v9fmzu4x2sV0zQsSyAVtOxfDwY1HMBcccn23tphweIdS+FNDn2vh1/2kREO0qmGc+fbFzNskjn72MiI56kjvNDRgWs+Q78yBvPCdPgTYTrto5eg33Ko2ELNR/zzEkCCuhO5Vw10qV8w==</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>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</X509Certificate><X509Certificate>MIIHejCCBWKgAwIBAgIKYQ6Q0gAAAAAAAzANBgkqhkiG9w0BAQsFADCBiDELMAkGA1UEBhMCVVMxEzARBgNVBAgTCldhc2hpbmd0b24xEDAOBgNVBAcTB1JlZG1vbmQxHjAcBgNVBAoTFU1pY3Jvc29mdCBDb3Jwb3JhdGlvbjEyMDAGA1UEAxMpTWljcm9zb2Z0IFJvb3QgQ2VydGlmaWNhdGUgQXV0aG9yaXR5IDIwMTEwHhcNMTEwNzA4MjA1OTA5WhcNMjYwNzA4MjEwOTA5WjB+MQswCQYDVQQGEwJVUzETMBEGA1UECBMKV2FzaGluZ3RvbjEQMA4GA1UEBxMHUmVkbW9uZDEeMBwGA1UEChMVTWljcm9zb2Z0IENvcnBvcmF0aW9uMSgwJgYDVQQDEx9NaWNyb3NvZnQgQ29kZSBTaWduaW5nIFBDQSAyMDExMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAq/D6chAcLq3YbqqCEE00uvK2WCGfQhsqa+laUKq4BjgaBEm6f8MMHt03a8YS2AvwOMKZBrDIOdUBFDFC04kNeWSHfpRgJGyvnkmc6Whe0t+bU7IKLMOv2akrrnoJr9eWWcpgGgXpZnboMlImEi/nqwhQz7NEt13YxC4Ddato88tt8zpcoRb0RrrgOGSsbmQ1eKagYw8t00CT+OPeBw3VXHmlSSnnDb6gE3e+lD3v++MrWhAfTVYoonpy4BI6t0le2O3tQ5GD2Xuye4Yb2T6xjF3oiU+EGvKhL1nkkDstrjNYxbc+/jLTswM9sbKvkjh+0p2ALPVOVpEhNSXDOW5kf1O6nA+tGSOEy/S6A4aN91/w0FK/jJSHvMAhdCVfGCi2zCcoOCWYOUo2z3yxkq4cI6epZuxhH2rhKEmdX4jiJV3TIUs+UsS1Vz8kA/DRelsv1SPjcF0PUUZ3s/gA4bysAoJf28AVs70b1FVL5zmhD+kjSbwYuER8ReTBw3J64HLnJN+/RpnF78IcV9uDjexNSTCnq47f7Fufr/zdsGbiwZeBe+3W7UvnSSmnEyimp31ngOaKYnhfsi+E11ecXL93KCjx7W3DKI8sj0A3T8HhhUSJxAlMxdSlQy90lfdu+HggWCwTXWCVmj5PM4TasIgX3p5O9JawvEagbJjS4NaIjAsCAwEAAaOCAe0wggHpMBAGCSsGAQQBgjcVAQQDAgEAMB0GA1UdDgQWBBRIbmTlUAXTgqoXNzcitW2oynUClTAZBgkrBgEEAYI3FAIEDB4KAFMAdQBiAEMAQTALBgNVHQ8EBAMCAYYwDwYDVR0TAQH/BAUwAwEB/zAfBgNVHSMEGDAWgBRyLToCMZBDuRQFTuHqp8cx0SOJNDBaBgNVHR8EUzBRME+gTaBLhklodHRwOi8vY3JsLm1pY3Jvc29mdC5jb20vcGtpL2NybC9wcm9kdWN0cy9NaWNSb29DZXJBdXQyMDExXzIwMTFfMDNfMjIuY3JsMF4GCCsGAQUFBwEBBFIwUDBOBggrBgEFBQcwAoZCaHR0cDovL3d3dy5taWNyb3NvZnQuY29tL3BraS9jZXJ0cy9NaWNSb29DZXJBdXQyMDExXzIwMTFfMDNfMjIuY3J0MIGfBgNVHSAEgZcwgZQwgZEGCSsGAQQBgjcuAzCBgzA/BggrBgEFBQcCARYzaHR0cDovL3d3dy5taWNyb3NvZnQuY29tL3BraW9wcy9kb2NzL3ByaW1hcnljcHMuaHRtMEAGCCsGAQUFBwICMDQeMiAdAEwAZQBnAGEAbABfAHAAbwBsAGkAYwB5AF8AcwB0AGEAdABlAG0AZQBuAHQALiAdMA0GCSqGSIb3DQEBCwUAA4ICAQBn8oalmOBUeRou09h0ZyKbC5YR4WOSmUKWfdJ5DJDBZV8uLD74w3LRbYP+vj/oCso7v0epo/Np22O/IjWll11lhJB9i0ZQVdgMknzSGksc8zxCi1LQsP1r4z4HLimb5j0bpdS1HXeUOeLpZMlEPXh6I/MTfaaQdION9MsmAkYqwooQu6SpBQyb7Wj6aC6VoCo/KmtYSWMfCWluWpiW5IP0wI/zRive/DvQvTXvbiWu5a8n7dDd8w6vmSiXmE0OPQvyCInWH8MyGOLwxS3OW560STkKxgrCxq2u5bLZ2xWIUUVYODJxJxp/sfQn+N4sOiBpmLJZiWhub6e3dMNABQamASooPoI/E01mC8CzTfXhj38cbxV9Rad25UAqZaPDXVJihsMdYzaXht/a8/jyFqGaJ+HNpZfQ7l1jQeNbB5yHPgZ3BtEGsXUfFL5hYbXw3MYbBL7fQccOKO7eZS/sl/ahXJbYANahRr1Z85elCUtIEJmAH9AAKcWxm6U/RXceNcbSoqKfenoi+kiVH6v7RyOA9Z74v2u3S5fi63V4GuzqN5l5GEv/1rMjaHXmr/r8i+sLgOppO6/8MO0ETI7f33VtY5E90Z1WTk+/gFcioXgRMiF670EKsT/7qMykXcGhiJtXcVZOSEXAQsmbdlsKgEhr/Xmfwb1tbWrJUnMTDXpQzQ==</X509Certificate><X509Certificate>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</X509Certificate></X509Data></KeyInfo><Object Id="ts-countersig"><X509Data><X509Certificate>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</X509Certificate><X509Certificate>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</X509Certificate></X509Data><CounterSignature ts-format="cms-timestamp-message" xmlns="http://schemas.microsoft.com/xmldsig/timestamp/2003">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</CounterSignature></Object></Signature></doc>

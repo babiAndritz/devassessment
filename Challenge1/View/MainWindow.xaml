@@ -1,0 +1,31 @@
+﻿<Window x:Class="Challenge1.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Challenge1.View"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <ContentControl x:Name="ContentControl"/>
+        <StackPanel Margin="20" 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <TextBlock Text="Choose the solution you want to test:" 
+                       FontSize="20" />
+            <Button x:Name="buttonGraph"
+                    Margin="10"
+                    Content="Graph"
+                    Width="100"
+                    Height="20"
+                    Click="GraphButton_Click"/>
+            <Button x:Name="buttonSubtitle"
+                    Margin="10"
+                    Content="Subtitle"
+                    Width="100"
+                    Height="20"
+                    Click="SubtitleButton_Click"/>
+
+        </StackPanel>
+    </Grid>
+</Window>
