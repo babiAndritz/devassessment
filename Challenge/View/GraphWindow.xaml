@@ -1,0 +1,119 @@
+﻿<Window x:Class="Challenge.View.GraphWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Challenge.View" 
+        mc:Ignorable="d"
+        Title="Graph Window" Height="500" Width="800">
+    <Grid Background="Azure">
+        <StackPanel Margin="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                <Button x:Name="createButton"
+                        Margin="5"
+                        Content="Create Graph"
+                        Width="100"
+                        Click="BuildButton_Click"/>
+                <Button x:Name="randomButton"
+                        Margin="5"
+                        Width="180"
+                        Content="Generate Random Graph"
+                        Click="CreateButton_Click"/>
+                <Button x:Name="startButton"
+                        Margin="5"
+                        Width="70"
+                        Content="Run DFS"
+                        Click="StartButton_Click"/>
+                <Button x:Name="clearButton"
+                        Margin="5"
+                        Width="50"
+                        Content="Clear"
+                        Click="ClearButton_Click"/>
+            </StackPanel>
+            <StackPanel x:Name="ChoosestackPanel" Orientation="Horizontal" Height="62" Width="766">
+                <TextBlock Text="Origin" Margin="20" TextWrapping="Wrap"/>
+                <ComboBox x:Name="graphOriginComboBox" Width="50" Height="20" SelectionChanged="graphOriginComboBox_SelectionChanged">
+                    <ComboBoxItem Content="A"/>
+                    <ComboBoxItem Content="B"/>
+                    <ComboBoxItem Content="C"/>
+                    <ComboBoxItem Content="D"/>
+                    <ComboBoxItem Content="E"/>
+                    <ComboBoxItem Content="F"/>
+                    <ComboBoxItem Content="G"/>
+                    <ComboBoxItem Content="H"/>
+                </ComboBox>
+
+                <TextBlock Text="Link Target" Margin="20" TextWrapping="Wrap"/>
+                <ComboBox x:Name="graphTargetComboBox" Width="50" Height="20" SelectionChanged="graphTargetComboBox_SelectionChanged">
+                    <ComboBoxItem Content="A"/>
+                    <ComboBoxItem Content="B"/>
+                    <ComboBoxItem Content="C"/>
+                    <ComboBoxItem Content="D"/>
+                    <ComboBoxItem Content="E"/>
+                    <ComboBoxItem Content="F"/>
+                    <ComboBoxItem Content="G"/>
+                    <ComboBoxItem Content="H"/>
+                </ComboBox>
+
+                <Button Margin="20"
+                        Content="Path"
+                        Click="PathButton_Click"
+                        Width="45"
+                        Height="20"/>
+
+
+                <StackPanel x:Name="CreatestackPanel" Orientation="Horizontal" Height="63" Width="419">
+                    <TextBlock Text="Link Origin" Margin="20" TextWrapping="Wrap"/>
+                    <ComboBox x:Name="graphLinkOriginComboBox" Width="50" Height="20" SelectionChanged="graphLinkOriginComboBox_SelectionChanged">
+                        <ComboBoxItem Content="A"/>
+                        <ComboBoxItem Content="B"/>
+                        <ComboBoxItem Content="C"/>
+                        <ComboBoxItem Content="D"/>
+                        <ComboBoxItem Content="E"/>
+                        <ComboBoxItem Content="F"/>
+                        <ComboBoxItem Content="G"/>
+                        <ComboBoxItem Content="H"/>
+                    </ComboBox>
+
+                    <TextBlock Text="Link Target" Margin="20" TextWrapping="Wrap"/>
+                    <ComboBox x:Name="graphLinkTargetComboBox" Width="50" Height="20" SelectionChanged="graphLinkTargetComboBox_SelectionChanged">
+                        <ComboBoxItem Content="A"/>
+                        <ComboBoxItem Content="B"/>
+                        <ComboBoxItem Content="C"/>
+                        <ComboBoxItem Content="D"/>
+                        <ComboBoxItem Content="E"/>
+                        <ComboBoxItem Content="F"/>
+                        <ComboBoxItem Content="G"/>
+                        <ComboBoxItem Content="H"/>
+                    </ComboBox>
+
+                    <Button Margin="10,0,0,0"
+                        Content="Link"
+                        Click="LinkButton_Click"
+                        Width="45"
+                        Height="20"/>
+
+                    <Button Margin="10,0,0,0"
+                        Content="Delete"
+                        Click="DeleteButton_Click"
+                        Width="50"
+                        Height="20"/>
+                </StackPanel>
+
+            </StackPanel>
+
+            <TextBlock x:Name="PathText" Margin="5" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="300" Width="330">
+                    <TextBlock x:Name="resultText" Margin="20" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                </ScrollViewer>
+
+                <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="300" Width="330">
+                    <TextBlock x:Name="verticesText" Margin="20" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                </ScrollViewer>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Window>
