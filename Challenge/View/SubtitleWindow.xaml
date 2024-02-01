@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Challenge.View"
+        xmlns:local="clr-namespace:Challenge.View" xmlns:viewmodel="clr-namespace:Challenge.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:SubtitleVM}"
         mc:Ignorable="d"
         Title="SubtitleWindow" Height="500" Width="800">
     <Grid Background="Azure">
@@ -17,7 +17,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Text="TimeSpan:" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="1"/>
-                <TextBox x:Name="resultTimeSpan" Text="{Binding timeSpan}" Margin="10,0,10,0" Width="100" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="2" />
+                <TextBox x:Name="resultTimeSpan" Text="{Binding TimeText}" Margin="10,0,10,0" Width="100" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="2" />
                 <Button Content="Save"
                 HorizontalAlignment="Left"
                 Height="27"
@@ -26,9 +26,10 @@
                 Grid.Column="3"/>
             </Grid>
 
-            <TextBlock x:Name="TimeResult" Text="{Binding texto}" Margin="5" TextWrapping="Wrap" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="FileResult" Margin="5" TextWrapping="Wrap" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="OutFileResult" Margin="5" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+
+            <TextBlock x:Name="TimeResult" Text="{Binding TimeResultText}" Margin="5" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="FileResult" Text="{Binding FileResultText}" Margin="5" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="OutFileResult" Text="{Binding OutFileResultText}" Margin="5" TextWrapping="Wrap" HorizontalAlignment="Center"/>
 
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20" Height="70">
                 <Grid.ColumnDefinitions>
@@ -44,7 +45,7 @@
                 HorizontalAlignment="Center"
                 Height="30"
                 Width="120"
-                Click="Button_Click"
+                Command="{Binding SelectFileCommand}"
                 Grid.Column="1"/>
 
 
@@ -53,7 +54,7 @@
                 HorizontalAlignment="Center"
                 Height="28"
                 Width="50"
-                Click="StartButton_Click"
+                Command="{Binding OutputFileCommand}"
                 Grid.Column="3"/>
             </Grid>
 
@@ -62,7 +63,7 @@
                 HorizontalAlignment="Center"
                 Height="28"
                 Width="50"
-                Click="ClearButton_Click"/>
+                Command="{Binding ClearCommand}"/>
         </StackPanel>
     </Grid>
 </Window>
