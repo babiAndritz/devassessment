@@ -15,10 +15,6 @@ namespace Challenge.View
     {
 
         private GraphVM vm;
-        //private Graph<string> graph;
-        private readonly string[] vertices = new[] { "A", "B", "C", "D", "E", "F", "G", "H" };
-        private readonly List<ILink<string>> links = new List<ILink<string>>();
-        private string selectedOrigin, selectedTarget;
 
         public GraphWindow()
         {
@@ -26,20 +22,9 @@ namespace Challenge.View
 
             vm = new GraphVM();
             DataContext = vm;
-
-            links.Clear();
-            vm.Graph = null;
-            CreatestackPanel.Visibility = Visibility.Hidden;
         }
 
         // --- Create --- //
-        private void BuildButton_Click(object sender, RoutedEventArgs e)
-        {
-            CreatestackPanel.Visibility = Visibility.Visible;
-            randomButton.IsEnabled = false;
-            createButton.IsEnabled = false;
-        }
-
         private void graphLinkOriginComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedOrigin = ((ComboBoxItem)graphLinkOriginComboBox.SelectedItem)?.Content?.ToString();
@@ -75,7 +60,7 @@ namespace Challenge.View
 
         private void LinkButton_Click(object sender, RoutedEventArgs e)
         {
-            bool linkExists = links.Any(link => link.Source == graphLinkOriginComboBox.Text && link.Target == graphLinkTargetComboBox.Text);
+            bool linkExists = vm.Links.Any(link => link.Source == graphLinkOriginComboBox.Text && link.Target == graphLinkTargetComboBox.Text);
 
             if (graphLinkOriginComboBox.Text == string.Empty || graphLinkTargetComboBox.Text == string.Empty)
             {
@@ -88,11 +73,11 @@ namespace Challenge.View
 
                 if (!linkExists)
                 {
-                    links.Add(new Link<string>(graphLinkOriginComboBox.Text, graphLinkTargetComboBox.Text));
+                    vm.Links.Add(new Link<string>(graphLinkOriginComboBox.Text, graphLinkTargetComboBox.Text));
                     UpdateGraphMessage();
                 }
 
-                vm.Graph = new Graph<string>(links);
+                vm.Graph = new Graph<string>(vm.Links);
 
                 graphLinkOriginComboBox.Text = string.Empty;
                 graphLinkTargetComboBox.Text = string.Empty;
@@ -101,9 +86,9 @@ namespace Challenge.View
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            if (links.Count > 0)
+            if (vm.Links.Count > 0)
             {
-                links.Remove(links.Last());
+                vm.Links.Remove(vm.Links.Last());
                 UpdateGraphMessage();
             }
         }
@@ -121,21 +106,21 @@ namespace Challenge.View
         {
             Random random = new Random();
 
-            for (int i = 0; i < vertices.Length; i++)
+            for (int i = 0; i < vm.Vertices.Length; i++)
             {
-                var source = vertices[i];
-                var target = vertices[random.Next(vertices.Length - 1)];
+                var source = vm.Vertices[i];
+                var target = vm.Vertices[random.Next(vm.Vertices.Length - 1)];
 
                 if (target == source)
                 {
-                    target = vertices.Last();
+                    target = vm.Vertices.Last();
                 }
 
-                links.Add(new Link<string>(source, target));
+                vm.Links.Add(new Link<string>(source, target));
 
             }
 
-            vm.Graph = new Graph<string>(links);
+            vm.Graph = new Graph<string>(vm.Links);
             UpdateGraphMessage();
         }
 
@@ -144,7 +129,7 @@ namespace Challenge.View
         {
             string message = "Links:\n";
 
-            foreach (var link in links)
+            foreach (var link in vm.Links)
             {
                 message += $"\n{link}\n";
             }
@@ -156,7 +141,7 @@ namespace Challenge.View
         // --- DFS --- //
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            if(links != null && vm.Graph != null && selectedOrigin != null && selectedTarget != null)
+            if(vm.Links != null && vm.Graph != null && vm.Source != null && vm.Target != null)
             {
                 ProcessDFS();
             } 
@@ -168,7 +153,7 @@ namespace Challenge.View
 
         private void ProcessDFS()
         {
-            var paths = vm.Graph.RoutesBetween(selectedOrigin, selectedTarget);
+            var paths = vm.Graph.RoutesBetween(vm.Source, vm.Target);
 
             var list = paths.ToEnumerable().ToArray();
 
@@ -204,9 +189,9 @@ namespace Challenge.View
             {
                 verticesText.Text = string.Empty;
             } 
-            if (links != null)
+            if (vm.Links != null)
             {
-                links.Clear();
+                vm.Links.Clear();
             } 
             if (vm.Graph != null)
             {
@@ -256,10 +241,10 @@ namespace Challenge.View
 
         private void PathButton_Click(object sender, RoutedEventArgs e)
         {
-            selectedOrigin = graphOriginComboBox.Text;
-            selectedTarget = graphTargetComboBox.Text;
+            vm.Source = graphOriginComboBox.Text;
+            vm.Target = graphTargetComboBox.Text;
 
-            PathText.Text = $"Choosen Path:  {selectedOrigin} -> {selectedTarget}";
+            PathText.Text = $"Choosen Path:  {vm.Source} -> {vm.Target}";
 
             graphOriginComboBox.Text = string.Empty;
             graphTargetComboBox.Text = string.Empty;
