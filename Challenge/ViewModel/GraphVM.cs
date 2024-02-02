@@ -347,7 +347,15 @@ namespace Challenge.ViewModel
 
             SelectedPathCommand = new DelegateCommand(() =>
             {
-                PathText = $"Choosen Path:  {Source.Name.ToString()} -> {Target.Name.ToString()}";
+                if (Source == null || Target == null)
+                {
+                    MessageBox.Show("Please insert both origin and target to create a link", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+                else 
+                {
+                    PathText = $"Choosen Path:  {Source.Name.ToString()} -> {Target.Name.ToString()}";
+                }
+                
             });
 
             // --- Create Random --- //
