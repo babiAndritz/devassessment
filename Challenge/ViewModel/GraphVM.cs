@@ -13,6 +13,11 @@ using System.Collections.ObjectModel;
 
 namespace Challenge.ViewModel
 {
+    public class GraphItem
+    {
+        public string Name { get; set; }
+    }
+
     public class GraphVM : INotifyPropertyChanged
     {
         private Graph<string> graph;
@@ -26,8 +31,8 @@ namespace Challenge.ViewModel
             }
         }
 
-        private string source;
-        public string Source
+        private GraphItem source;
+        public GraphItem Source
         {
             get { return source; }
             set
@@ -37,8 +42,8 @@ namespace Challenge.ViewModel
             }
         }
 
-        private string target;
-        public string Target
+        private GraphItem target;
+        public GraphItem Target
         {
             get { return target; }
             set
@@ -74,6 +79,7 @@ namespace Challenge.ViewModel
         public ICommand CreateGraphCommand { get; set; }
         public ICommand OriginItemSelectedCommand { get; set; }
         public ICommand TargetItemSelectedCommand { get; set; }
+        public ICommand SelectedPathCommand { get; set; }
 
         private Visibility stackPannel;
         public Visibility StackPannel
@@ -108,8 +114,8 @@ namespace Challenge.ViewModel
             }
         }
 
-        private object originSelectedItem;
-        public object OriginSelectedItem
+        private string originSelectedItem;
+        public string OriginSelectedItem
         {
             get { return originSelectedItem; }
             set
@@ -119,8 +125,8 @@ namespace Challenge.ViewModel
             }
         }
 
-        private object targetSelectedItem;
-        public object TargetSelectedItem
+        private string targetSelectedItem;
+        public string TargetSelectedItem
         {
             get { return targetSelectedItem; }
             set
@@ -130,38 +136,19 @@ namespace Challenge.ViewModel
             }
         }
 
-        private ObservableCollection<string> originAllItems;
-        public ObservableCollection<string> OriginAllItems
+        private string pathText;
+        public string PathText
         {
-            get { return originAllItems; }
+            get { return pathText; }
             set
             {
-                originAllItems = value;
-                OnPropertyChanged("OriginAllItems");
+                pathText = value;
+                OnPropertyChanged("PathText");
             }
         }
 
-        private ObservableCollection<string> targetAllItems;
-        public ObservableCollection<string> TargetAllItems
-        {
-            get { return targetAllItems; }
-            set
-            {
-                targetAllItems = value;
-                OnPropertyChanged("TargetAllItems");
-            }
-        }
-
-        private bool originIsEnabled;
-        public bool OriginIsEnabled
-        {
-            get { return originIsEnabled; }
-            set
-            {
-                originIsEnabled = value;
-                OnPropertyChanged("OriginIsEnabled");
-            }
-        }
+        public ObservableCollection<GraphItem> SourceItemsSource { get; set; }
+        public ObservableCollection<GraphItem> TargetItemsSource { get; set; }
 
         public GraphVM()
         {
@@ -173,8 +160,8 @@ namespace Challenge.ViewModel
             StackPannel = Visibility.Hidden;
             RandomEnabled = true;
             CreateEnabled = true;
-            OriginIsEnabled = true;
 
+            // --- Create --- //
             CreateGraphCommand = new DelegateCommand(() =>
             {
                 StackPannel = Visibility.Visible;
@@ -182,21 +169,68 @@ namespace Challenge.ViewModel
                 CreateEnabled = false;
             });
 
+            // --- ComboBox --- //
+            SourceItemsSource = new ObservableCollection<GraphItem>
+            {
+            new GraphItem { Name = "A" },
+            new GraphItem { Name = "B" },
+            new GraphItem { Name = "C" },
+            new GraphItem { Name = "D" },
+            new GraphItem { Name = "E" },
+            new GraphItem { Name = "F" },
+            new GraphItem { Name = "G" },
+            new GraphItem { Name = "H" },
+            new GraphItem { Name = "I" },
+            };
+
+            TargetItemsSource = new ObservableCollection<GraphItem>
+            {
+            new GraphItem { Name = "A" },
+            new GraphItem { Name = "B" },
+            new GraphItem { Name = "C" },
+            new GraphItem { Name = "D" },
+            new GraphItem { Name = "E" },
+            new GraphItem { Name = "F" },
+            new GraphItem { Name = "G" },
+            new GraphItem { Name = "H" },
+            new GraphItem { Name = "I" },
+            };
+
+            // --- Path --- //
             OriginItemSelectedCommand = new DelegateCommand(() =>
             {
-                var selectedOrigin = (OriginSelectedItem).ToString();
-                foreach (var item in TargetAllItems)
+                var selectedOrigin = Source?.Name;
+
+                if (selectedOrigin != null)
                 {
-                    if (item.ToString() == selectedOrigin)
+                    if (selectedOrigin == Target?.Name)
                     {
-                        OriginIsEnabled = false;
-                    }
-                    else 
-                    {
-                        OriginIsEnabled = true;
+                        MessageBox.Show("The selected target cannot be the same as the origin. Please select another source.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        Source = null;
                     }
                 }
             });
+
+            TargetItemSelectedCommand = new DelegateCommand(() =>
+            {
+                var selectedTarget = Target?.Name;
+
+                if (selectedTarget != null)
+                {
+                    if (selectedTarget == Source?.Name)
+                    {
+                        MessageBox.Show("The selected origin cannot be the same as the target. Please select another target.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        Target = null;
+                    }
+                }
+            });
+
+            SelectedPathCommand = new DelegateCommand(() =>
+            {
+                PathText = $"Choosen Path:  {Source.Name.ToString()} -> {Target.Name.ToString()}";
+            });
+
+
         }
 
         private void InitializeLinks()

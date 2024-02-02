@@ -35,49 +35,26 @@
             <StackPanel x:Name="ChoosestackPanel" Orientation="Horizontal" Height="62" Width="766">
                 <TextBlock Text="Origin" Margin="20" TextWrapping="Wrap"/>
 
-                <ComboBox x:Name="graphOriginComboBox" SelectionChanged="graphOriginComboBox_SelectionChanged" Width="50" Height="20">
-                    <!--<ComboBox x:Name="graphOriginComboBox" ItemsSource="{Binding OriginAllItems}" SelectedItem="{Binding OriginSelectedItem}" Width="50" Height="20">-->
-                    <!--<i:Interaction.Triggers>
+                <ComboBox x:Name="graphOriginComboBox" ItemsSource="{Binding SourceItemsSource}" DisplayMemberPath="Name" SelectedItem="{Binding Source}" Width="50" Height="20">
+                    <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
                             <i:InvokeCommandAction Command="{Binding OriginItemSelectedCommand}" />
                         </i:EventTrigger>
-                        <i:EventTrigger EventName="IsEnabled">
-                            <i:InvokeCommandAction Command="{Binding OriginIsEnabled}" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>-->
-                    
-                    <ComboBoxItem Content="A"/>
-                    <ComboBoxItem Content="B"/>
-                    <ComboBoxItem Content="C"/>
-                    <ComboBoxItem Content="D"/>
-                    <ComboBoxItem Content="E"/>
-                    <ComboBoxItem Content="F"/>
-                    <ComboBoxItem Content="G"/>
-                    <ComboBoxItem Content="H"/>
+                    </i:Interaction.Triggers>
                 </ComboBox>
 
                 <TextBlock Text="Link Target" Margin="20" TextWrapping="Wrap"/>
-                <ComboBox x:Name="graphTargetComboBox" Width="50" Height="20" SelectionChanged="graphTargetComboBox_SelectionChanged">
-                <!--<ComboBox x:Name="graphTargetComboBox" Width="50" Height="20" ItemsSource="{Binding TargetAllItems}" SelectedItem="{Binding TargetSelectedItem}">
+                <ComboBox x:Name="graphTargetComboBox" Width="50" Height="20" ItemsSource="{Binding TargetItemsSource}" DisplayMemberPath="Name" SelectedItem="{Binding Target}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
                             <i:InvokeCommandAction Command="{Binding TargetItemSelectedCommand}" />
                         </i:EventTrigger>
-                    </i:Interaction.Triggers>-->
-                    
-                    <ComboBoxItem Content="A"/>
-                    <ComboBoxItem Content="B"/>
-                    <ComboBoxItem Content="C"/>
-                    <ComboBoxItem Content="D"/>
-                    <ComboBoxItem Content="E"/>
-                    <ComboBoxItem Content="F"/>
-                    <ComboBoxItem Content="G"/>
-                    <ComboBoxItem Content="H"/>
+                    </i:Interaction.Triggers>
                 </ComboBox>
 
                 <Button Margin="20"
                         Content="Path"
-                        Click="PathButton_Click"
+                        Command="{Binding SelectedPathCommand}"
                         Width="45"
                         Height="20"/>
 

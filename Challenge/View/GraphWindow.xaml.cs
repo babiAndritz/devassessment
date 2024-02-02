@@ -141,10 +141,10 @@ namespace Challenge.View
         // --- DFS --- //
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            if(vm.Links != null && vm.Graph != null && vm.Source != null && vm.Target != null)
+            if (vm.Links != null && vm.Graph != null && vm.Source != null && vm.Target != null)
             {
                 ProcessDFS();
-            } 
+            }
             else
             {
                 MessageBox.Show("Please create a graph and select the origin and target first, then start the DFS algorithm.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -153,28 +153,28 @@ namespace Challenge.View
 
         private void ProcessDFS()
         {
-            var paths = vm.Graph.RoutesBetween(vm.Source, vm.Target);
+            //var paths = vm.Graph.RoutesBetween(vm.Source, vm.Target);
 
-            var list = paths.ToEnumerable().ToArray();
+            //var list = paths.ToEnumerable().ToArray();
 
-            string message = "";
+            //string message = "";
 
-            if (list.Count() < 1)
-            {
-                message = "There isn't an existing path.";
-            }
-            else
-            {
-                message = "Paths:\n";
+            //if (list.Count() < 1)
+            //{
+            //    message = "There isn't an existing path.";
+            //}
+            //else
+            //{
+            //    message = "Paths:\n";
 
-                for (int i = 0; i < list.Count(); i++)
-                {
-                    var formattedPath = string.Join(" - ", list[i]);
-                    message += $"\nPath {i + 1}: {formattedPath}\n";
-                }
-            }
+            //    for (int i = 0; i < list.Count(); i++)
+            //    {
+            //        var formattedPath = string.Join(" - ", list[i]);
+            //        message += $"\nPath {i + 1}: {formattedPath}\n";
+            //    }
+            //}
 
-            resultText.Text = message;
+            //resultText.Text = message;
         }
 
 
@@ -183,16 +183,16 @@ namespace Challenge.View
         {
             if (resultText != null)
             {
-                resultText.Text = string.Empty; 
+                resultText.Text = string.Empty;
             }
             if (verticesText != null)
             {
                 verticesText.Text = string.Empty;
-            } 
+            }
             if (vm.Links != null)
             {
                 vm.Links.Clear();
-            } 
+            }
             if (vm.Graph != null)
             {
                 vm.Graph = null;
@@ -202,52 +202,6 @@ namespace Challenge.View
             startButton.IsEnabled = true;
             createButton.IsEnabled = true;
             CreatestackPanel.Visibility = Visibility.Hidden;
-        }
-
-
-        // --- Path --- //
-        private void graphOriginComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var origin = ((ComboBoxItem)graphOriginComboBox.SelectedItem)?.Content?.ToString();
-            foreach (ComboBoxItem item in graphTargetComboBox.Items)
-            {
-                if (item.Content.ToString() == origin)
-                {
-                    item.IsEnabled = false;
-                }
-                else
-                {
-                    item.IsEnabled = true;
-                }
-            }
-        }
-
-        private void graphTargetComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var target = ((ComboBoxItem)graphTargetComboBox.SelectedItem)?.Content?.ToString();
-
-            foreach (ComboBoxItem item in graphOriginComboBox.Items)
-            {
-                if (item.Content.ToString() == target)
-                {
-                    item.IsEnabled = false;
-                }
-                else
-                {
-                    item.IsEnabled = true;
-                }
-            }
-        }
-
-        private void PathButton_Click(object sender, RoutedEventArgs e)
-        {
-            vm.Source = graphOriginComboBox.Text;
-            vm.Target = graphTargetComboBox.Text;
-
-            PathText.Text = $"Choosen Path:  {vm.Source} -> {vm.Target}";
-
-            graphOriginComboBox.Text = string.Empty;
-            graphTargetComboBox.Text = string.Empty;
         }
 
     }
