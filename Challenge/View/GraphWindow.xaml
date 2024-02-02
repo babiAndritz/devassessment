@@ -20,17 +20,17 @@
                         Margin="5"
                         Width="180"
                         Content="Generate Random Graph"
-                        Click="CreateButton_Click"/>
+                        Command="{Binding CreateRandomGraphCommand}"/>
                 <Button x:Name="startButton"
                         Margin="5"
                         Width="70"
                         Content="Run DFS"
-                        Click="StartButton_Click"/>
+                        Command="{Binding RunDFSCommand}"/>
                 <Button x:Name="clearButton"
                         Margin="5"
                         Width="50"
                         Content="Clear"
-                        Click="ClearButton_Click"/>
+                        Command="{Binding ClearCommand}"/>
             </StackPanel>
             <StackPanel x:Name="ChoosestackPanel" Orientation="Horizontal" Height="62" Width="766">
                 <TextBlock Text="Origin" Margin="20" TextWrapping="Wrap"/>
@@ -61,53 +61,47 @@
 
                 <StackPanel x:Name="CreatestackPanel" Visibility="{Binding StackPannel}" Orientation="Horizontal" Height="63" Width="419">
                     <TextBlock Text="Link Origin" Margin="20" TextWrapping="Wrap"/>
-                    <ComboBox x:Name="graphLinkOriginComboBox" Width="50" Height="20" SelectionChanged="graphLinkOriginComboBox_SelectionChanged">
-                        <ComboBoxItem Content="A"/>
-                        <ComboBoxItem Content="B"/>
-                        <ComboBoxItem Content="C"/>
-                        <ComboBoxItem Content="D"/>
-                        <ComboBoxItem Content="E"/>
-                        <ComboBoxItem Content="F"/>
-                        <ComboBoxItem Content="G"/>
-                        <ComboBoxItem Content="H"/>
+                    <ComboBox x:Name="graphLinkOriginComboBox" ItemsSource="{Binding OriginLinkItemsSource}" DisplayMemberPath="Name" SelectedItem="{Binding OriginSelectedItem}" Width="50" Height="20">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding OriginLinkItemSelectedCommand}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </ComboBox>
 
                     <TextBlock Text="Link Target" Margin="20" TextWrapping="Wrap"/>
-                    <ComboBox x:Name="graphLinkTargetComboBox" Width="50" Height="20" SelectionChanged="graphLinkTargetComboBox_SelectionChanged">
-                        <ComboBoxItem Content="A"/>
-                        <ComboBoxItem Content="B"/>
-                        <ComboBoxItem Content="C"/>
-                        <ComboBoxItem Content="D"/>
-                        <ComboBoxItem Content="E"/>
-                        <ComboBoxItem Content="F"/>
-                        <ComboBoxItem Content="G"/>
-                        <ComboBoxItem Content="H"/>
+                    <ComboBox x:Name="graphLinkTargetComboBox" ItemsSource="{Binding TargetLinkItemsSource}" DisplayMemberPath="Name" SelectedItem="{Binding TargetSelectedItem}" Width="50" Height="20">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding TargetLinkItemSelectedCommand}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </ComboBox>
 
                     <Button Margin="10,0,0,0"
                         Content="Link"
-                        Click="LinkButton_Click"
+                        Command="{Binding CreateLinkCommand}"
                         Width="45"
                         Height="20"/>
 
                     <Button Margin="10,0,0,0"
                         Content="Delete"
-                        Click="DeleteButton_Click"
+                        Command="{Binding DeleteLinkCommand}"
                         Width="50"
                         Height="20"/>
                 </StackPanel>
 
             </StackPanel>
 
-            <TextBlock x:Name="PathText" Margin="5" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="PathText" Text="{Binding PathText}" Margin="5" TextWrapping="Wrap" HorizontalAlignment="Center"/>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
                 <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="300" Width="330">
-                    <TextBlock x:Name="resultText" Margin="20" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="resultText" Text="{Binding ResultText}" Margin="20" TextWrapping="Wrap" HorizontalAlignment="Center"/>
                 </ScrollViewer>
 
                 <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="300" Width="330">
-                    <TextBlock x:Name="verticesText" Margin="20" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="verticesText" Text="{Binding VerticesText}" Margin="20" TextWrapping="Wrap" HorizontalAlignment="Center"/>
                 </ScrollViewer>
             </StackPanel>
 
