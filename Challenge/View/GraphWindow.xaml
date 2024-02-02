@@ -43,7 +43,7 @@
                     </i:Interaction.Triggers>
                 </ComboBox>
 
-                <TextBlock Text="Link Target" Margin="20" TextWrapping="Wrap"/>
+                <TextBlock Text="Target" Margin="20" TextWrapping="Wrap"/>
                 <ComboBox x:Name="graphTargetComboBox" Width="50" Height="20" ItemsSource="{Binding TargetItemsSource}" DisplayMemberPath="Name" SelectedItem="{Binding Target}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
