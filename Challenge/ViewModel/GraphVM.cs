@@ -16,11 +16,12 @@ namespace Challenge.ViewModel
 {
     public class GraphItem
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
     }
 
     public class GraphVM : INotifyPropertyChanged
     {
+        // --- Graph variables ---//
         private Graph<string> graph;
         public Graph<string>? Graph
         {
@@ -29,28 +30,6 @@ namespace Challenge.ViewModel
             {
                 graph = value;
                 OnPropertyChanged("Graph");
-            }
-        }
-
-        private GraphItem source;
-        public GraphItem? Source
-        {
-            get { return source; }
-            set
-            {
-                source = value;
-                OnPropertyChanged("Source");
-            }
-        }
-
-        private GraphItem target;
-        public GraphItem? Target
-        {
-            get { return target; }
-            set
-            {
-                target = value;
-                OnPropertyChanged("Target");
             }
         }
 
@@ -76,14 +55,47 @@ namespace Challenge.ViewModel
             }
         }
 
-        private string[] vertices;
-        public string[] Vertices
+        private GraphItem source;
+        public GraphItem? Source
         {
-            get { return vertices; }
+            get { return source; }
             set
             {
-                vertices = value;
-                OnPropertyChanged("Vertices");
+                source = value;
+                OnPropertyChanged("Source");
+            }
+        }
+
+        private GraphItem target;
+        public GraphItem? Target
+        {
+            get { return target; }
+            set
+            {
+                target = value;
+                OnPropertyChanged("Target");
+            }
+        }
+
+        private GraphItem originSelectedItem;
+        public GraphItem OriginSelectedItem
+        {
+            get { return originSelectedItem; }
+            set
+            {
+                originSelectedItem = value;
+                OnPropertyChanged("OriginSelectedItem");
+            }
+        }
+
+        private GraphItem targetSelectedItem;
+        public GraphItem TargetSelectedItem
+        {
+            get { return targetSelectedItem; }
+            set
+            {
+                targetSelectedItem = value;
+                OnPropertyChanged("TargetSelectedItem");
             }
         }
 
@@ -98,6 +110,20 @@ namespace Challenge.ViewModel
             }
         }
 
+        private string[] vertices;
+        public string[] Vertices
+        {
+            get { return vertices; }
+            set
+            {
+                vertices = value;
+                OnPropertyChanged("Vertices");
+            }
+        }
+
+
+
+        // --- XAML variables ---//
         private Visibility stackPannel;
         public Visibility StackPannel
         {
@@ -128,28 +154,6 @@ namespace Challenge.ViewModel
             {
                 createEnabled = value;
                 OnPropertyChanged("CreateEnabled");
-            }
-        }
-
-        private GraphItem originSelectedItem;
-        public GraphItem OriginSelectedItem
-        {
-            get { return originSelectedItem; }
-            set
-            {
-                originSelectedItem = value;
-                OnPropertyChanged("OriginSelectedItem");
-            }
-        }
-
-        private GraphItem targetSelectedItem;
-        public GraphItem TargetSelectedItem
-        {
-            get { return targetSelectedItem; }
-            set
-            {
-                targetSelectedItem = value;
-                OnPropertyChanged("TargetSelectedItem");
             }
         }
 
@@ -186,6 +190,13 @@ namespace Challenge.ViewModel
             }
         }
 
+        public ObservableCollection<GraphItem> SourceItemsSource { get; set; }
+        public ObservableCollection<GraphItem> TargetItemsSource { get; set; }
+        public ObservableCollection<GraphItem> OriginLinkItemsSource { get; set; }
+        public ObservableCollection<GraphItem> TargetLinkItemsSource { get; set; }
+
+
+        /* - Commands - */
         public ICommand CreateGraphCommand { get; set; }
         public ICommand OriginLinkItemSelectedCommand { get; set; }
         public ICommand TargetLinkItemSelectedCommand { get; set; }
@@ -203,11 +214,9 @@ namespace Challenge.ViewModel
 
         public ICommand ClearCommand { get; set; }
 
-        public ObservableCollection<GraphItem> SourceItemsSource { get; set; }
-        public ObservableCollection<GraphItem> TargetItemsSource { get; set; }
-        public ObservableCollection<GraphItem> OriginLinkItemsSource { get; set; }
-        public ObservableCollection<GraphItem> TargetLinkItemsSource { get; set; }
 
+
+        // --- Class Constructor --- // 
         public GraphVM()
         {
             InitializeVertices();
@@ -446,12 +455,23 @@ namespace Challenge.ViewModel
                 {
                     Target = null;
                 }
+                if (TempSource != null)
+                {
+                    TempSource = null;
+                }
+                if (TempTarget != null)
+                {
+                    TempTarget = null;
+                }
                 RandomEnabled = true;
                 CreateEnabled = true;
                 StackPannel = Visibility.Hidden;
             });
         }
 
+
+
+        // --- Methods --- //
         private void InitializeLinks()
         {
             Links = new List<ILink<string>>();
@@ -460,19 +480,6 @@ namespace Challenge.ViewModel
         private void InitializeVertices()
         {
             Vertices = new[] { "A", "B", "C", "D", "E", "F", "G", "H" };
-        }
-
-        // - Message - //
-        private void UpdateGraphMessage()
-        {
-            string message = "Links:\n";
-
-            foreach (var link in Links)
-            {
-                message += $"\n{link}\n";
-            }
-
-            VerticesText = message;
         }
 
         private void InitializeGraph()
@@ -497,9 +504,21 @@ namespace Challenge.ViewModel
             UpdateGraphMessage();
         }
 
+        private void UpdateGraphMessage()
+        {
+            string message = "Links:\n";
+
+            foreach (var link in Links)
+            {
+                message += $"\n{link}\n";
+            }
+
+            VerticesText = message;
+        }
+
         private void ProcessDFS()
         {
-            var paths = Graph.RoutesBetween(Source.Name.ToString(), Target.Name.ToString());
+            var paths = Graph?.RoutesBetween(Source?.Name.ToString(), Target?.Name.ToString());
 
             var list = paths.ToEnumerable().ToArray();
 
