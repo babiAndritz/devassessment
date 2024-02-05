@@ -12,6 +12,7 @@ namespace Challenge.ViewModel
 {
     public class SubtitleVM : INotifyPropertyChanged
     {
+        // --- Subtitle variables --- //
         private Stream inputFile;
         public Stream? InputFile
         {
@@ -56,11 +57,9 @@ namespace Challenge.ViewModel
             }
         }
 
-        public ICommand SaveCommand { get; set; }
-        public ICommand SelectFileCommand { get; set; }
-        public ICommand OutputFileCommand { get; set; }
-        public ICommand ClearCommand { get; set; }
 
+
+        // --- XAML variables ---//
         public string timeResultText;
         public string TimeResultText
         {
@@ -105,9 +104,20 @@ namespace Challenge.ViewModel
             }
         }
 
+
+        /* - Commands - */
+        public ICommand SaveCommand { get; set; }
+        public ICommand SelectFileCommand { get; set; }
+        public ICommand OutputFileCommand { get; set; }
+        public ICommand ClearCommand { get; set; }
+
+
+
+        // --- Class Constructor --- //
         public SubtitleVM()
         {
 
+            // --- Save TimeSpan --- //
             SaveCommand = new DelegateCommand(() =>
             {
                 if (long.TryParse(TimeText, out long milliseconds))
@@ -122,6 +132,7 @@ namespace Challenge.ViewModel
                 }
             });
 
+            // --- Select Input File --- //
             SelectFileCommand = new DelegateCommand(() =>
             {
                 OpenFileDialog dialog = new OpenFileDialog();
@@ -141,6 +152,7 @@ namespace Challenge.ViewModel
 
             });
 
+            // --- Select Output File --- //
             OutputFileCommand = new DelegateCommand(async () =>
             {
                 if (InputFile == null)
@@ -175,6 +187,7 @@ namespace Challenge.ViewModel
                 }
             });
 
+            // --- Clear --- //
             ClearCommand = new DelegateCommand(() =>
             {
                 TimeSpan = TimeSpan.Zero;

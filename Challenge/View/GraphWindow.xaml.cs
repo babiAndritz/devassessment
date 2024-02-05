@@ -14,7 +14,7 @@ namespace Challenge.View
     public partial class GraphWindow : Window
     {
 
-        private GraphVM vm;
+        private readonly GraphVM vm;
 
         public GraphWindow()
         {

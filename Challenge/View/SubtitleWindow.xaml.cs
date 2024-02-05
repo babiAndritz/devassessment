@@ -34,17 +34,5 @@ namespace Challenge.View
             viewModel = new SubtitleVM();
             DataContext = viewModel;
         }
-
-        private void ClearButton_Click(object sender, RoutedEventArgs e)
-        {
-            viewModel.TimeSpan = TimeSpan.Zero;
-            TimeResult.Text = String.Empty;
-            viewModel.InputFile = null;
-            FileResult.Text = String.Empty;
-            viewModel.OutputFile = null;
-            OutFileResult.Text = String.Empty;
-
-        }
     }
-    
 }
