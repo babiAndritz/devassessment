@@ -54,6 +54,28 @@ namespace Challenge.ViewModel
             }
         }
 
+        private GraphItem tempSource;
+        public GraphItem? TempSource
+        {
+            get { return tempSource; }
+            set
+            {
+                tempSource = value;
+                OnPropertyChanged("TempSource");
+            }
+        }
+
+        private GraphItem tempTarget;
+        public GraphItem? TempTarget
+        {
+            get { return tempTarget; }
+            set
+            {
+                tempTarget = value;
+                OnPropertyChanged("TempTarget");
+            }
+        }
+
         private string[] vertices;
         public string[] Vertices
         {
@@ -319,41 +341,48 @@ namespace Challenge.ViewModel
             // --- Path --- //
             OriginItemSelectedCommand = new DelegateCommand(() =>
             {
-                var selectedOrigin = Source?.Name;
+                var selectedOrigin = TempSource?.Name;
 
                 if (selectedOrigin != null)
                 {
-                    if (selectedOrigin == Target?.Name)
+                    if (selectedOrigin == TempTarget?.Name)
                     {
                         MessageBox.Show("The selected target cannot be the same as the origin. Please select another source.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                         Source = null;
+                        TempSource = null;
                     }
                 }
             });
 
             TargetItemSelectedCommand = new DelegateCommand(() =>
             {
-                var selectedTarget = Target?.Name;
+                var selectedTarget = TempTarget?.Name;
 
                 if (selectedTarget != null)
                 {
-                    if (selectedTarget == Source?.Name)
+                    if (selectedTarget == TempSource?.Name)
                     {
                         MessageBox.Show("The selected origin cannot be the same as the target. Please select another target.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                         Target = null;
+                        TempTarget = null;
                     }
                 }
             });
 
             SelectedPathCommand = new DelegateCommand(() =>
             {
-                if (Source == null || Target == null)
+                if (TempSource == null || TempTarget == null)
                 {
                     MessageBox.Show("Please insert both origin and target to create a link", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
                 else 
                 {
-                    PathText = $"Choosen Path:  {Source.Name.ToString()} -> {Target.Name.ToString()}";
+                    Source = TempSource;
+                    Target = TempTarget;
+                    PathText = $"Choosen Path:  {Source?.Name.ToString()} -> {Target?.Name.ToString()}";
+
+                    TempSource = null;
+                    TempTarget = null;
                 }
                 
             });

@@ -34,8 +34,7 @@
             </StackPanel>
             <StackPanel x:Name="ChoosestackPanel" Orientation="Horizontal" Height="62" Width="766">
                 <TextBlock Text="Origin" Margin="20" TextWrapping="Wrap"/>
-
-                <ComboBox x:Name="graphOriginComboBox" ItemsSource="{Binding SourceItemsSource}" DisplayMemberPath="Name" SelectedItem="{Binding Source}" Width="50" Height="20">
+                <ComboBox x:Name="graphOriginComboBox" ItemsSource="{Binding SourceItemsSource}" DisplayMemberPath="Name" SelectedItem="{Binding TempSource}" Width="50" Height="20">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
                             <i:InvokeCommandAction Command="{Binding OriginItemSelectedCommand}" />
@@ -44,7 +43,7 @@
                 </ComboBox>
 
                 <TextBlock Text="Target" Margin="20" TextWrapping="Wrap"/>
-                <ComboBox x:Name="graphTargetComboBox" Width="50" Height="20" ItemsSource="{Binding TargetItemsSource}" DisplayMemberPath="Name" SelectedItem="{Binding Target}">
+                <ComboBox x:Name="graphTargetComboBox" Width="50" Height="20" ItemsSource="{Binding TargetItemsSource}" DisplayMemberPath="Name" SelectedItem="{Binding TempTarget}">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
                             <i:InvokeCommandAction Command="{Binding TargetItemSelectedCommand}" />
