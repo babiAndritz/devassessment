@@ -60,7 +60,7 @@
 
                 <StackPanel x:Name="CreatestackPanel" Visibility="{Binding StackPannel}" Orientation="Horizontal" Height="63" Width="419">
                     <TextBlock Text="Link Origin" Margin="20" TextWrapping="Wrap"/>
-                    <ComboBox x:Name="graphLinkOriginComboBox" ItemsSource="{Binding OriginLinkItemsSource}" DisplayMemberPath="Name" SelectedItem="{Binding OriginSelectedItem}" Width="50" Height="20">
+                    <ComboBox x:Name="graphLinkOriginComboBox" ItemsSource="{Binding OriginLinkItemsSource}" DisplayMemberPath="Name" SelectedItem="{Binding TempSource}" Width="50" Height="20">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
                                 <i:InvokeCommandAction Command="{Binding OriginLinkItemSelectedCommand}" />
@@ -69,7 +69,7 @@
                     </ComboBox>
 
                     <TextBlock Text="Link Target" Margin="20" TextWrapping="Wrap"/>
-                    <ComboBox x:Name="graphLinkTargetComboBox" ItemsSource="{Binding TargetLinkItemsSource}" DisplayMemberPath="Name" SelectedItem="{Binding TargetSelectedItem}" Width="50" Height="20">
+                    <ComboBox x:Name="graphLinkTargetComboBox" ItemsSource="{Binding TargetLinkItemsSource}" DisplayMemberPath="Name" SelectedItem="{Binding TempTarget}" Width="50" Height="20">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
                                 <i:InvokeCommandAction Command="{Binding TargetLinkItemSelectedCommand}" />

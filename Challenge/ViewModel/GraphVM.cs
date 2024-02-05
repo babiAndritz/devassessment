@@ -229,37 +229,39 @@ namespace Challenge.ViewModel
 
             OriginLinkItemSelectedCommand = new DelegateCommand(() =>
             {
-                var selectedOrigin = OriginSelectedItem?.Name;
+                var selectedOrigin = TempSource?.Name;
 
                 if (selectedOrigin != null)
                 {
-                    if (selectedOrigin == TargetSelectedItem?.Name)
+                    if (selectedOrigin == TempTarget?.Name)
                     {
                         MessageBox.Show("The selected target cannot be the same as the origin. Please select another source.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                         OriginSelectedItem = null;
+                        TempSource = null;
                     }
                 }
             });
 
             TargetLinkItemSelectedCommand = new DelegateCommand(() =>
             {
-                var selectedTarget = TargetSelectedItem?.Name;
+                var selectedTarget = TempTarget?.Name;
 
                 if (selectedTarget != null)
                 {
-                    if (selectedTarget == OriginSelectedItem?.Name)
+                    if (selectedTarget == TempSource?.Name)
                     {
                         MessageBox.Show("The selected origin cannot be the same as the target. Please select another target.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                         TargetSelectedItem = null;
+                        TempTarget = null;
                     }
                 }
             });
 
             CreateLinkCommand = new DelegateCommand(() =>
             {
-                bool linkExists = Links.Any(link => link.Source == OriginSelectedItem?.Name.ToString() && link.Target == TargetSelectedItem?.Name.ToString());
+                bool linkExists = Links.Any(link => link.Source == TempSource?.Name.ToString() && link.Target == TempTarget?.Name.ToString());
 
-                if (OriginSelectedItem == null || TargetSelectedItem == null)
+                if (TempSource == null || TempTarget == null)
                 {
                     MessageBox.Show("Please insert both origin and target to create a link", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
@@ -267,8 +269,13 @@ namespace Challenge.ViewModel
                 {
                     if (!linkExists)
                     {
+                        OriginSelectedItem = TempSource;
+                        TargetSelectedItem = TempTarget;
                         Links.Add(new Link<string>(OriginSelectedItem.Name.ToString(), TargetSelectedItem.Name.ToString()));
                         UpdateGraphMessage();
+
+                        TempSource = null;
+                        TempTarget = null;
                     }
 
                     Graph = new Graph<string>(Links);
