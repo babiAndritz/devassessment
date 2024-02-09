@@ -18,6 +18,7 @@ using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 using Challenge.ViewModel;
 using Path = System.IO.Path;
+using System.Diagnostics;
 
 namespace Challenge.View
 {
@@ -34,5 +35,6 @@ namespace Challenge.View
             viewModel = new SubtitleVM();
             DataContext = viewModel;
         }
+
     }
 }

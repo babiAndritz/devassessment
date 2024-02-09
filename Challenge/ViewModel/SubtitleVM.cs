@@ -116,6 +116,9 @@ namespace Challenge.ViewModel
         // --- Class Constructor --- //
         public SubtitleVM()
         {
+            TimeResultText = "TimeSpan: ";
+            FileResultText = "Input File: ";
+            OutFileResultText = "Output File: ";
 
             // --- Save TimeSpan --- //
             SaveCommand = new DelegateCommand(() =>
@@ -124,7 +127,7 @@ namespace Challenge.ViewModel
                 {
                     TimeSpan = TimeSpan.FromMilliseconds(milliseconds);
                     TimeText = string.Empty;
-                    TimeResultText = TimeSpan.ToString();  
+                    TimeResultText = "TimeSpan: " + TimeSpan.ToString();  
                 }
                 else
                 {
@@ -147,7 +150,7 @@ namespace Challenge.ViewModel
 
                     string fileName = Path.GetFileName(dialog.FileName);
 
-                    FileResultText = $"File: {fileName}";
+                    FileResultText = $"Input File: {fileName}";
                 }
 
             });
@@ -191,11 +194,11 @@ namespace Challenge.ViewModel
             ClearCommand = new DelegateCommand(() =>
             {
                 TimeSpan = TimeSpan.Zero;
-                TimeResultText = String.Empty;
+                TimeResultText = "TimeSpan: ";
+                FileResultText = "Input File: ";
+                OutFileResultText = "Output File: ";
                 InputFile = null;
-                FileResultText = String.Empty;
                 OutputFile = null;
-                OutFileResultText = String.Empty;
             });
         }
 

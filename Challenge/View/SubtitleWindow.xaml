@@ -8,62 +8,87 @@
         Title="SubtitleWindow" Height="500" Width="800">
     <Grid Background="Azure">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20">
-            <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20" Height="70">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
 
-                <TextBlock Text="TimeSpan:" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="1"/>
-                <TextBox x:Name="resultTimeSpan" Text="{Binding TimeText}" Margin="10,0,10,0" Width="100" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="2" />
-                <Button Content="Save"
+            <Border Background="#F0FFF0" CornerRadius="15" Height="80">
+                <Border.Effect>
+                    <DropShadowEffect Color="Gray" Direction="315" ShadowDepth="3" Opacity="0.5"/>
+                </Border.Effect>
+                
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20" Height="70">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="TimeSpan:" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="1"/>
+                    <TextBox x:Name="resultTimeSpan" Text="{Binding TimeText}" Margin="10,0,10,0" Width="100" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="2" />
+                    <Button Content="Save"
                 HorizontalAlignment="Left"
                 Height="27"
                 Width="50"
                 Command="{Binding SaveCommand}"
                 Grid.Column="3"/>
-            </Grid>
+                </Grid>
+            </Border>
+
+            <Border Margin="0,15,0,0" Background="#d2e6f9" CornerRadius="15" Height="80">
+                    
+                    <Border.Effect>
+                    <DropShadowEffect Color="Gray" Direction="315" ShadowDepth="3" Opacity="0.5"/>
+                </Border.Effect>
+
+                <StackPanel>
+                    <TextBlock x:Name="TimeResult" Text="{Binding TimeResultText}" Margin="15,5" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="FileResult" Text="{Binding FileResultText}" Margin="15,5" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="OutFileResult" Text="{Binding OutFileResultText}" Margin="15,5" TextWrapping="Wrap" HorizontalAlignment="Left"/>
+                </StackPanel>
+            </Border>
+
+            <Border Margin="0,15,0,0" Background="#FFF0F5" CornerRadius="15" Height="80">
+
+                <Border.Effect>
+                    <DropShadowEffect Color="Gray" Direction="315" ShadowDepth="3" Opacity="0.5"/>
+                </Border.Effect>
+
+                    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
 
 
-            <TextBlock x:Name="TimeResult" Text="{Binding TimeResultText}" Margin="5" TextWrapping="Wrap" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="FileResult" Text="{Binding FileResultText}" Margin="5" TextWrapping="Wrap" HorizontalAlignment="Center"/>
-            <TextBlock x:Name="OutFileResult" Text="{Binding OutFileResultText}" Margin="5" TextWrapping="Wrap" HorizontalAlignment="Center"/>
-
-            <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20" Height="70">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+                        <Button Content="Select subtitle file"
+                                HorizontalAlignment="Center"
+                                Height="30"
+                                Width="120"
+                                Command="{Binding SelectFileCommand}"
+                                Grid.Column="1"/>
 
 
-                <Button Content="Select subtitle file"
-                HorizontalAlignment="Center"
-                Height="30"
-                Width="120"
-                Command="{Binding SelectFileCommand}"
-                Grid.Column="1"/>
+                        <Button Content="Start"
+                                Margin="20,0"
+                                HorizontalAlignment="Center"
+                                Height="28"
+                                Width="50"
+                                Command="{Binding OutputFileCommand}"
+                                Grid.Column="3"/>
 
+                        <Button Content="Clear"
+                            Margin="5"
+                            HorizontalAlignment="Center"
+                            Height="28"
+                            Width="50"
+                            Command="{Binding ClearCommand}"
+                            Grid.Column="5"/>
+                    </Grid>
 
-                <Button Content="Start"
-                Margin="20"
-                HorizontalAlignment="Center"
-                Height="28"
-                Width="50"
-                Command="{Binding OutputFileCommand}"
-                Grid.Column="3"/>
-            </Grid>
+            </Border>
 
-            <Button Content="Clear"
-                Margin="5"
-                HorizontalAlignment="Center"
-                Height="28"
-                Width="50"
-                Command="{Binding ClearCommand}"/>
         </StackPanel>
     </Grid>
 </Window>
