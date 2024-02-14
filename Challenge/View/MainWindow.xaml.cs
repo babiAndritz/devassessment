@@ -27,14 +27,19 @@ namespace Challenge.View
 
         private void GraphButton_Click(object sender, RoutedEventArgs e)
         {
-            GraphWindow page = new GraphWindow();
+            GraphWindow page = new();
             page.Show();
         }
 
         private void SubtitleButton_Click(object sender, RoutedEventArgs e)
         {
-            SubtitleWindow page = new SubtitleWindow();
+            SubtitleWindow page = new();
             page.Show();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //System.Diagnostics.Process.Start("https://github.com/babiAndritz/devassessment");
         }
     }
 }

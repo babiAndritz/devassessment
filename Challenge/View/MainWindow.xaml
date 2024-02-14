@@ -8,24 +8,38 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <ContentControl x:Name="ContentControl"/>
-        <StackPanel Margin="20" 
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Border Background="WhiteSmoke" CornerRadius="15" Height="200" Width="400">
+                <Border.Effect>
+                    <DropShadowEffect Color="Gray" Direction="315" ShadowDepth="3" Opacity="0.5"/>
+                </Border.Effect>
+
+                <StackPanel Margin="20" 
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center">
-            <TextBlock Text="Choose the solution you want to test:" 
+                    <TextBlock Text="Choose the solution you want to test:" 
                        FontSize="20" />
-            <Button x:Name="buttonGraph"
+                    <Button x:Name="buttonGraph"
                     Margin="10"
                     Content="Graph"
                     Width="100"
                     Height="20"
                     Click="GraphButton_Click"/>
-            <Button x:Name="buttonSubtitle"
+                    <Button x:Name="buttonSubtitle"
                     Margin="10"
                     Content="Subtitle"
                     Width="100"
                     Height="20"
                     Click="SubtitleButton_Click"/>
 
+                </StackPanel>
+            </Border>
+            <Button Content="Link Github"
+                Margin="5,20,0,0"
+                HorizontalAlignment="Left"
+                Height="27"
+                Width="90"
+                Click="Button_Click"/>
         </StackPanel>
     </Grid>
 </Window>
