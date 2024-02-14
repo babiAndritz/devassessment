@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Input;
 using Microsoft.Win32;
 using SubtitleTimeshift;
+using System.Windows.Controls;
 
 namespace Challenge.ViewModel
 {
@@ -104,6 +105,17 @@ namespace Challenge.ViewModel
             }
         }
 
+        private Visibility borderVisible;
+        public Visibility BorderVisible
+        {
+            get { return borderVisible; }
+            set
+            {
+                borderVisible = value;
+                OnPropertyChanged("BorderVisible");
+            }
+        }
+
 
         /* - Commands - */
         public ICommand SaveCommand { get; set; }
@@ -119,6 +131,7 @@ namespace Challenge.ViewModel
             TimeResultText = "TimeSpan: ";
             FileResultText = "Input File: ";
             OutFileResultText = "Output File: ";
+            BorderVisible = Visibility.Hidden;
 
             // --- Save TimeSpan --- //
             SaveCommand = new DelegateCommand(() =>
@@ -127,6 +140,7 @@ namespace Challenge.ViewModel
                 {
                     TimeSpan = TimeSpan.FromMilliseconds(milliseconds);
                     TimeText = string.Empty;
+                    BorderVisible = Visibility.Visible;
                     TimeResultText = "TimeSpan: " + TimeSpan.ToString();  
                 }
                 else
@@ -149,6 +163,8 @@ namespace Challenge.ViewModel
                     MessageBox.Show($"File selected with success: {dialog.FileName}", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
                     string fileName = Path.GetFileName(dialog.FileName);
+
+                    BorderVisible = Visibility.Visible;
 
                     FileResultText = $"Input File: {fileName}";
                 }
@@ -183,6 +199,8 @@ namespace Challenge.ViewModel
 
                             string fileName = Path.GetFileName(saveFileDialog.FileName);
 
+                            BorderVisible = Visibility.Visible;
+
                             OutFileResultText = $"Output File: {fileName}";
 
                         }
@@ -199,6 +217,7 @@ namespace Challenge.ViewModel
                 OutFileResultText = "Output File: ";
                 InputFile = null;
                 OutputFile = null;
+                BorderVisible = Visibility.Hidden;
             });
         }
 
