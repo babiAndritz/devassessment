@@ -135,6 +135,28 @@ namespace Challenge.ViewModel
             }
         }
 
+        private Visibility borderResult;
+        public Visibility BorderResult
+        {
+            get { return borderResult; }
+            set
+            {
+                borderResult = value;
+                OnPropertyChanged("BorderResult");
+            }
+        }
+
+        private Visibility borderVertices;
+        public Visibility BorderVertices
+        {
+            get { return borderVertices; }
+            set
+            {
+                borderVertices = value;
+                OnPropertyChanged("BorderVertices");
+            }
+        }
+
         private bool randomEnabled;
         public bool RandomEnabled
         {
@@ -225,6 +247,8 @@ namespace Challenge.ViewModel
             Links.Clear();
             Graph = null;
             StackPannel = Visibility.Hidden;
+            BorderResult = Visibility.Hidden;
+            BorderVertices = Visibility.Hidden;
             RandomEnabled = true;
             CreateEnabled = true;
 
@@ -466,6 +490,8 @@ namespace Challenge.ViewModel
                 RandomEnabled = true;
                 CreateEnabled = true;
                 StackPannel = Visibility.Hidden;
+                BorderResult = Visibility.Hidden;
+                BorderVertices = Visibility.Hidden;
             });
         }
 
@@ -513,6 +539,8 @@ namespace Challenge.ViewModel
                 message += $"\n{link}\n";
             }
 
+            BorderVertices = Visibility.Visible;
+
             VerticesText = message;
         }
 
@@ -539,6 +567,7 @@ namespace Challenge.ViewModel
                 }
             }
 
+            BorderResult = Visibility.Visible;
             ResultText = message;
         }
 

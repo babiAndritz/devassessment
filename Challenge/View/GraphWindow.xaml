@@ -5,105 +5,150 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Challenge.View" xmlns:viewmodel="clr-namespace:Challenge.ViewModel" xmlns:i="http://schemas.microsoft.com/xaml/behaviors" d:DataContext="{d:DesignInstance Type=viewmodel:GraphVM}"
         mc:Ignorable="d"
-        Title="Graph Window" Height="500" Width="800">
+        Title="Graph Window" Height="550" Width="850">
     <Grid Background="Azure">
-        <StackPanel Margin="10">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
-                <Button x:Name="createButton"
+
+        <Border Background="#F0FFF0" CornerRadius="15" Margin="20">
+            <Border.Effect>
+                <DropShadowEffect Color="Gray" Direction="315" ShadowDepth="3" Opacity="0.5"/>
+            </Border.Effect>
+
+            <StackPanel Margin="10">
+                <Border Background="#F0FFF0" CornerRadius="15" Margin="5" Width="600">
+                    <Border.Effect>
+                        <DropShadowEffect Color="Gray" Direction="315" ShadowDepth="3" Opacity="0.5"/>
+                    </Border.Effect>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button x:Name="createButton"
                         IsEnabled="{Binding CreateEnabled}"
                         Margin="5"
                         Content="Create Graph"
                         Width="100"
                         Command="{Binding CreateGraphCommand}"/>
-                <Button x:Name="randomButton"
+                        <Button x:Name="randomButton"
                         IsEnabled="{Binding RandomEnabled}"
                         Margin="5"
                         Width="180"
                         Content="Generate Random Graph"
                         Command="{Binding CreateRandomGraphCommand}"/>
-                <Button x:Name="startButton"
+                        <Button x:Name="startButton"
                         Margin="5"
                         Width="70"
                         Content="Run DFS"
                         Command="{Binding RunDFSCommand}"/>
-                <Button x:Name="clearButton"
+                        <Button x:Name="clearButton"
                         Margin="5"
                         Width="50"
                         Content="Clear"
                         Command="{Binding ClearCommand}"/>
-            </StackPanel>
-            <StackPanel x:Name="ChoosestackPanel" Orientation="Horizontal" Height="62" Width="766">
-                <TextBlock Text="Origin" Margin="20" TextWrapping="Wrap"/>
-                <ComboBox x:Name="graphOriginComboBox" ItemsSource="{Binding SourceItemsSource}" DisplayMemberPath="Name" SelectedItem="{Binding TempSource}" Width="50" Height="20">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="SelectionChanged">
-                            <i:InvokeCommandAction Command="{Binding OriginItemSelectedCommand}" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </ComboBox>
+                    </StackPanel>
 
-                <TextBlock Text="Target" Margin="20" TextWrapping="Wrap"/>
-                <ComboBox x:Name="graphTargetComboBox" Width="50" Height="20" ItemsSource="{Binding TargetItemsSource}" DisplayMemberPath="Name" SelectedItem="{Binding TempTarget}">
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="SelectionChanged">
-                            <i:InvokeCommandAction Command="{Binding TargetItemSelectedCommand}" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </ComboBox>
+                </Border>
 
-                <Button Margin="20"
+                <StackPanel x:Name="ChoosestackPanel" Orientation="Horizontal" Height="62" Width="728" Margin="10">
+                    <Border Background="#F0FFF0" CornerRadius="15" Margin="0,0,10,0">
+                        <Border.Effect>
+                            <DropShadowEffect Color="Gray" Direction="315" ShadowDepth="3" Opacity="0.5"/>
+                        </Border.Effect>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Origin" Margin="20" TextWrapping="Wrap"/>
+                            <ComboBox x:Name="graphOriginComboBox" ItemsSource="{Binding SourceItemsSource}" DisplayMemberPath="Name" SelectedItem="{Binding TempSource}" Width="50" Height="20">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction Command="{Binding OriginItemSelectedCommand}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </ComboBox>
+
+                            <TextBlock Text="Target" Margin="20" TextWrapping="Wrap"/>
+                            <ComboBox x:Name="graphTargetComboBox" Width="50" Height="20" ItemsSource="{Binding TargetItemsSource}" DisplayMemberPath="Name" SelectedItem="{Binding TempTarget}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction Command="{Binding TargetItemSelectedCommand}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </ComboBox>
+
+                            <Button Margin="20"
                         Content="Path"
                         Command="{Binding SelectedPathCommand}"
                         Width="45"
                         Height="20"/>
+                        </StackPanel>
+
+                    </Border>
+
+                    <Border Background="#F0FFF0" CornerRadius="15" Width="370" HorizontalAlignment="Center" Visibility="{Binding StackPannel}">
+                        <Border.Effect>
+                            <DropShadowEffect Color="Gray" Direction="315" ShadowDepth="3" Opacity="0.5"/>
+                        </Border.Effect>
+
+                        <StackPanel x:Name="CreatestackPanel" Orientation="Horizontal" Height="63">
+                            <TextBlock Text="Link Origin" Margin="10" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                            <ComboBox x:Name="graphLinkOriginComboBox" ItemsSource="{Binding OriginLinkItemsSource}" DisplayMemberPath="Name" SelectedItem="{Binding TempSource}" Width="50" Height="20">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction Command="{Binding OriginLinkItemSelectedCommand}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </ComboBox>
+
+                            <TextBlock Text="Link Target" Margin="10" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                            <ComboBox x:Name="graphLinkTargetComboBox" ItemsSource="{Binding TargetLinkItemsSource}" DisplayMemberPath="Name" SelectedItem="{Binding TempTarget}" Width="50" Height="20">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction Command="{Binding TargetLinkItemSelectedCommand}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </ComboBox>
+
+                            <Button Margin="5,0,0,0"
+                                Content="Link"
+                                Command="{Binding CreateLinkCommand}"
+                                Width="45"
+                                Height="20"/>
+
+                            <Button Margin="5,0,0,0"
+                                Content="Delete"
+                                Command="{Binding DeleteLinkCommand}"
+                                Width="50"
+                                Height="20"/>
+                        </StackPanel>
+                    </Border>
+
+                </StackPanel>
 
 
-                <StackPanel x:Name="CreatestackPanel" Visibility="{Binding StackPannel}" Orientation="Horizontal" Height="63" Width="419">
-                    <TextBlock Text="Link Origin" Margin="20" TextWrapping="Wrap"/>
-                    <ComboBox x:Name="graphLinkOriginComboBox" ItemsSource="{Binding OriginLinkItemsSource}" DisplayMemberPath="Name" SelectedItem="{Binding TempSource}" Width="50" Height="20">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="SelectionChanged">
-                                <i:InvokeCommandAction Command="{Binding OriginLinkItemSelectedCommand}" />
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </ComboBox>
+                <TextBlock x:Name="PathText" FontWeight="Bold" FontSize="15" Text="{Binding PathText}" Margin="5" TextWrapping="Wrap" HorizontalAlignment="Center"/>
 
-                    <TextBlock Text="Link Target" Margin="20" TextWrapping="Wrap"/>
-                    <ComboBox x:Name="graphLinkTargetComboBox" ItemsSource="{Binding TargetLinkItemsSource}" DisplayMemberPath="Name" SelectedItem="{Binding TempTarget}" Width="50" Height="20">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="SelectionChanged">
-                                <i:InvokeCommandAction Command="{Binding TargetLinkItemSelectedCommand}" />
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </ComboBox>
+                
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                    <Border Background="Azure" CornerRadius="15" MaxHeight="280" Margin="5" Visibility="{Binding BorderResult}">
+                        <Border.Effect>
+                            <DropShadowEffect Color="Gray" Direction="315" ShadowDepth="3" Opacity="0.5"/>
+                        </Border.Effect>
 
-                    <Button Margin="10,0,0,0"
-                        Content="Link"
-                        Command="{Binding CreateLinkCommand}"
-                        Width="45"
-                        Height="20"/>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="300" Width="330">
+                            <TextBlock x:Name="resultText" Text="{Binding ResultText}" Margin="20" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                        </ScrollViewer>
+                    </Border>
 
-                    <Button Margin="10,0,0,0"
-                        Content="Delete"
-                        Command="{Binding DeleteLinkCommand}"
-                        Width="50"
-                        Height="20"/>
+                    <Border Background="Azure" CornerRadius="15" MaxHeight="280" Margin="5" Visibility="{Binding BorderVertices}">
+                        <Border.Effect>
+                            <DropShadowEffect Color="Gray" Direction="315" ShadowDepth="3" Opacity="0.5"/>
+                        </Border.Effect>
+
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="300" Width="330">
+                            <TextBlock x:Name="verticesText" Text="{Binding VerticesText}" Margin="20" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+                        </ScrollViewer>
+                    </Border>
+
                 </StackPanel>
 
             </StackPanel>
-
-            <TextBlock x:Name="PathText" Text="{Binding PathText}" Margin="5" TextWrapping="Wrap" HorizontalAlignment="Center"/>
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
-                <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="300" Width="330">
-                    <TextBlock x:Name="resultText" Text="{Binding ResultText}" Margin="20" TextWrapping="Wrap" HorizontalAlignment="Center"/>
-                </ScrollViewer>
-
-                <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="300" Width="330">
-                    <TextBlock x:Name="verticesText" Text="{Binding VerticesText}" Margin="20" TextWrapping="Wrap" HorizontalAlignment="Center"/>
-                </ScrollViewer>
-            </StackPanel>
-
-        </StackPanel>
+        </Border>
+        
     </Grid>
 </Window>
