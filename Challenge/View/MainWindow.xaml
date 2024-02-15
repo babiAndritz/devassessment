@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Challenge.View"
+        xmlns:local="clr-namespace:Challenge.View" xmlns:viewmodel="clr-namespace:Challenge.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainVM}"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -24,13 +24,13 @@
                     Content="Graph"
                     Width="100"
                     Height="20"
-                    Click="GraphButton_Click"/>
+                    Command="{Binding OpenGraphPage}"/>
                     <Button x:Name="buttonSubtitle"
                     Margin="10"
                     Content="Subtitle"
                     Width="100"
                     Height="20"
-                    Click="SubtitleButton_Click"/>
+                    Command="{Binding OpenSubtitlePage}"/>
 
                 </StackPanel>
             </Border>
@@ -39,7 +39,7 @@
                 HorizontalAlignment="Left"
                 Height="27"
                 Width="90"
-                Click="Button_Click"/>
+                Command="{Binding OpenGithubLinkPage}"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Challenge.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,26 +21,14 @@ namespace Challenge.View
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly MainVM vm;
+
         public MainWindow()
         {
             InitializeComponent();
-        }
 
-        private void GraphButton_Click(object sender, RoutedEventArgs e)
-        {
-            GraphWindow page = new();
-            page.Show();
-        }
-
-        private void SubtitleButton_Click(object sender, RoutedEventArgs e)
-        {
-            SubtitleWindow page = new();
-            page.Show();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //System.Diagnostics.Process.Start("https://github.com/babiAndritz/devassessment");
+            vm = new MainVM();
+            DataContext = vm;
         }
     }
 }
